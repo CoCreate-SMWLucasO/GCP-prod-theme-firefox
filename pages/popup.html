@@ -1,26 +1,42 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <style>
-    body {
-      margin: 10px;
-    }
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+      body {
+        margin: 10px;
+      }
 
-    .project {
-      width: 100%;
-    }
+      .tagLabel {
+        width: 100%;
+        max-width: 400px;
+      }
 
-    .projectSelector {
-      width: 100%;
-      margin-top: 5px;
-    }
+      textarea[aria-label="tags"] {
+        width: 100%;
+        max-width: 400px;
+        height: 100px;
+        margin-top: 10px;
+        margin-bottom: 10px;
 
-  </style>
-</head>
-<body>
-  The plugin is active.
-</body>
+      }
+
+      button[name="save"] {
+        height: 32px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <label class="tagLabel">
+      Place the comma-separated (partial) project names to detect as production environments (supports RegEx expressions)
+      <textarea aria-label="tags" name="prodDetailsArea"></textarea>
+    </label>
+    <button name="save">save</button>
+    <script src="../src/observer.js"></script>
+    <script src="../src/storage.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>

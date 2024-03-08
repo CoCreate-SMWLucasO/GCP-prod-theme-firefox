@@ -1,12 +1,17 @@
 {
   "manifest_version": 2,
   "name": "GCP project theme changer",
-  "version": "0.0.1",
-  "permissions": ["storage"],
+  "version": "1.0.0",
+  "homepage_url": "https://github.com/CoCreate-SMWLucasO/GCP-prod-theme-firefox/",
+  "permissions": ["activeTab", "storage"],
   "content_scripts": [
     {
       "matches": ["*://console.cloud.google.com/*"],
-      "js": ["/src/observer.js", "/src/storage.js", "/colorify.js"]
+      "js": [
+        "/src/observer.js",
+        "/src/storage.js",
+        "/colorify.js"
+      ]
     }
   ],
   "browser_action": {
@@ -15,6 +20,6 @@
       "48": "/icon.png"
     },
     "default_title": "GCP project theme changer",
-    "default_popup": "/src/pages/popup.html"
+    "default_popup": "/pages/popup.html"
   }
 }

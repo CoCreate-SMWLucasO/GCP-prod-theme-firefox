@@ -1,13 +1,8 @@
 'use strict';
 
-globalThis.projectStorage.setup().then(async () => {
-  await globalThis.projectStorage.addProject('live');
-  await globalThis.projectStorage.addProject('production');
-}).then(() => globalThis.projectStorage.getProjects()).then(() => {
+globalThis.projectStorage.setup().then(() => globalThis.projectStorage.getProjects()).then(async () => {
   globalThis.productionObserver.setup(() => {
-    if (document.readyState !== 'complete') {
-      return;
-    }
+    if (document.readyState !== 'complete') return;
 
     const urlParams = new URLSearchParams(window.location.search);
 
@@ -16,12 +11,14 @@ globalThis.projectStorage.setup().then(async () => {
     }
 
     let noRelevantMappingDetected = true;
-    globalThis.projectStorage.getProjects().map(project => {
+    globalThis.projectStorage.getProjects().then((projects) => projects.forEach(project => {
+      if (!project) return;
+
       if (urlParams.get('project').search(project) !== -1) {
         document.body.style.border = '10px solid red';
         noRelevantMappingDetected = false;
       }
-    });
+    }));
 
     if (noRelevantMappingDetected) {
       document.body.style.border = '';
