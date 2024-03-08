@@ -16,9 +16,6 @@
   ],
   "browser_action": {
     "browser_style": true,
-    "default_icon": {
-      "48": "/icon.png"
-    },
     "default_title": "GCP project theme changer",
     "default_popup": "/pages/popup.html"
   }
