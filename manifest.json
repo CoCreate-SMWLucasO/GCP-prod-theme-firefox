@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "matches": ["*://console.cloud.google.com/*"],
-      "js": ["/src/observer.js", "/colorify.js"]
+      "js": ["/src/observer.js", "/src/storage.js", "/colorify.js"]
     }
   ],
   "browser_action": {
